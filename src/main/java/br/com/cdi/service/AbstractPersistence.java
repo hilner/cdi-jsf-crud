@@ -9,16 +9,7 @@ import javax.persistence.criteria.Root;
 
 import br.com.cdi.model.AbstractEntity;
 
-/**
- * Classe resolve os métodos básicos de cadastro (CRUD) com API da <code>JPA</code>.
- * 
- * @author YaW Tecnologia
- */
 public abstract class AbstractPersistence<T extends AbstractEntity, PK extends Number> {
-
-	/**
-	 * Classe da entidade, necessário para o método <code>EntityManager.find</code>.
-	 */
 	private Class<T> entityClass;
 
 	public AbstractPersistence(Class<T> entityClass) {
@@ -64,9 +55,6 @@ public abstract class AbstractPersistence<T extends AbstractEntity, PK extends N
 		Query q = getEntityManager().createQuery(cq);
 		return ((Long) q.getSingleResult()).intValue();
 	}
-	
-	/**
-	 * Exige a definição do <code>EntityManager</code> responsável pelas operações de persistência.
-	 */
+
 	protected abstract EntityManager getEntityManager();
 }
