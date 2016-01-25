@@ -19,11 +19,17 @@
 	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.0.60</version>
+		</dependency>
+
 		<!-- PrimeFaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>5.3</version>
+			<version>5.2</version>
 		</dependency>
 
 		<!-- JSF 2 -->

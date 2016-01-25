@@ -66,12 +66,12 @@
 		<div class="control-group">
 			<div class="controls">
 				<p:commandButton value="#{msg['button.salvar']}"
-					action="#{mercadoriaMB.salvar}" styleClass="btn btn-success" onclick="dlg.show();" oncomplete="dlg.hide();"
+					action="#{mercadoriaMB.salvar}" styleClass="btn btn-success" onclick="PF('dlg').show();" oncomplete="PF('dlg').hide();"
 					rendered="#{mercadoriaMB.mercadoria != null}" />
 				<p:button value="#{msg['button.cancelar']}"
 					outcome="listaMercadorias" styleClass="btn" />
 				<p:commandButton value="#{msg['button.excluir']}"
-					onclick="confirmation.show()"
+					onclick="PF('confirmation').show();"
 					rendered="#{mercadoriaMB.mercadoria.id != null}" immediate="true"
 					styleClass="btn btn-danger" />
 			</div>
@@ -81,12 +81,9 @@
 	    	<h:outputText value="#{msg['dialog.emexecucao.aguarde']}" />  
 		</p:dialog>
 		
-		<p:confirmDialog id="confirmDialog" message="#{msg['excluir.mercadoria.confirma']}"
-			header="#{msg['excluir.mercadoria']}" severity="alert" widgetVar="confirmation">  
-	        <p:commandButton id="confirm" value="#{msg['confirma.sim']}" update="messages" 
-	        	oncomplete="confirmation.hide()" action="#{mercadoriaMB.remover}" />  
-	        <p:commandButton id="decline" value="#{msg['confirma.nao']}" 
-	        	onclick="confirmation.hide()" type="button" />
+		<p:confirmDialog id="confirmation" message="#{msg['excluir.mercadoria.confirma']}"	header="#{msg['excluir.mercadoria']}" severity="alert" widgetVar="confirmation">  
+	        <p:commandButton id="confirm" value="#{msg['confirma.sim']}" update="messages" oncomplete="PF('confirmation').hide()" action="#{mercadoriaMB.remover}" />  
+	        <p:commandButton id="decline" value="#{msg['confirma.nao']}" onclick="PF('confirmation').hide()" type="button" />
 	    </p:confirmDialog>
 	
 		<p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
